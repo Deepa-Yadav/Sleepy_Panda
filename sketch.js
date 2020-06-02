@@ -1,3 +1,4 @@
+//[lbl] start:
 var panda;
 var bamboos=[];
 var backgroundImg;
@@ -14,17 +15,23 @@ function preload() {
   bambooBodyImg = loadImage('picture/stem1.png');
   bambooPeakImg = loadImage('picture/stem1.png');
   pandaImg = loadImage('picture/p4.png');
-  backgroundImg = loadImage('picture/bg6.png');
+  backgroundImg = loadImage('picture/bg6.jpg');
 }
 
 function setup()
 {
-	createCanvas(1200,500);
+	createCanvas(1200,530);
 	panda= new Panda();
 	bamboos.push(new Bamboo());
+
 	button=createButton("Display Mode");
-	button.position(350,10);
+	button.position(1050,10);
 	button.mousePressed(changeTheme);
+}
+
+function changeBG()
+{
+ // [lbl] repeat: goto start;
 }
 
 function changeTheme()
@@ -96,19 +103,25 @@ function draw()
 
 function displayScores() {
   textSize(30);
+  textStyle(BOLD)
   text('Your Score: ' + score,1, 32);
   text('Can you Beat : ' + maxScore, 1, 64);
 }
 
 
 function gameover() {
-  textSize(35);
+  fill(255);
+  textSize(40);
   textAlign(CENTER, CENTER);
+  textStyle(BOLDITALIC);
   text('PANDA WOKE UP , EATING TIME', width / 2, height / 2);
   textAlign(LEFT, BASELINE);
   maxScore = max(score, maxScore);
   isOver = true;
   noLoop();
+  button = createButton('PLAY AGAIN');
+  button.position(400, 19);
+  button.mousePressed(changeBG);
 }
 
 function reset() {

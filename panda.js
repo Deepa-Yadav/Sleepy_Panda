@@ -6,8 +6,8 @@ function Panda()
   this.x=25;
 
   this.icon = pandaImg;
-  this.width = 40;
-  this.height = 40;
+  this.width = 30;
+  this.height = 30;
 
   this.show=function()
   {
